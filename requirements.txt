@@ -1,4 +1,6 @@
+-e
 git+https://git.heroku.com/ikoner-bot.git
+git+https://github.com/pseudonym117/Riot-Watcher.git
 PyNaCl==1.3.0
 pandas
 discord.py
