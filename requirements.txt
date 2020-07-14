@@ -1,8 +1,13 @@
 -e
+riotwatcher.py
+riotwatcher(3.0.0)
+riotwatcher==3.0.0
+riotwatcher (3.0.0)
 git+https://git.heroku.com/ikoner-bot.git
 git+https://github.com/pseudonym117/Riot-Watcher.git
 PyNaCl==1.3.0
 pandas
+riotwatcher
 discord.py
 riotwatcher
 json
