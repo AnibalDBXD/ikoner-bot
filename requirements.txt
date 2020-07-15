@@ -1,4 +1,5 @@
 -e
+request
 riotwatcher.py
 riotwatcher(3.0.0)
 riotwatcher==3.0.0
