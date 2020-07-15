@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from RiotWatcher import src
-from riotwatcher import LolWatcher, ApiError
+from riotwatcher import LolWatcher
 import urllib.request, json
 from urllib import parse,request
 import re
