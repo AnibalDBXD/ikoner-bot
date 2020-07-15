@@ -1,4 +1,5 @@
 urllib.request
+git+git://github.com/kennethreitz/requests.git
 requests==0.11.1
 git+https://git.heroku.com/ikoner-bot.git
 git+https://github.com/pseudonym117/Riot-Watcher.git
