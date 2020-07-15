@@ -1,9 +1,5 @@
--e
-request
-riotwatcher.py
-riotwatcher(3.0.0)
-riotwatcher==3.0.0
-riotwatcher (3.0.0)
+urllib.request
+requests==0.11.1
 git+https://git.heroku.com/ikoner-bot.git
 git+https://github.com/pseudonym117/Riot-Watcher.git
 PyNaCl==1.3.0
@@ -12,7 +8,6 @@ riotwatcher
 discord.py
 riotwatcher
 json
-urllib
 dnspython==1.16.0
 async-timeout==3.0.1
 discord
