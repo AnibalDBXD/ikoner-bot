@@ -1,11 +1,15 @@
 import discord
+from urllib3 import src
+from src import urllib3
+from urllib3 import *
+
 import requests
 import urllib.request, json
 from discord.ext import commands
 from RiotWatcher import src
 from riotwatcher import LolWatcher
 from requests import *
-from urllib import parse,request
+
 import re
 
 #Variables
