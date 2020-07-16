@@ -1,6 +1,4 @@
 import discord
-from urllib3 import src
-from src import urllib3
 from urllib3 import *
 
 import requests
