@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 
-from requests import Response
+from urllib3 import * 
 
 from . import RequestHandler
 
