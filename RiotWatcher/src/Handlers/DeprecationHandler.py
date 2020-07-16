@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime
 
-from urllib3 import * 
+from urllib3 import request, response 
 
 from . import RequestHandler
 
@@ -19,8 +19,8 @@ class DeprecationHandler(RequestHandler):
         endpoint_name: str,
         method_name: str,
         url: str,
-        response: Response,
-    ) -> Response:
+        response: response,
+    ):
         deprecation = response.headers.get("X-Riot-Deprecated")
         if deprecation is not None:
             try:
