@@ -1,19 +1,15 @@
 import discord
-from urllib3 import *
-
-import requests
-import urllib.request, json
 from discord.ext import commands
-from RiotWatcher import src
-from riotwatcher import LolWatcher
-from requests import *
-
+from riotwatcher import *
+import urllib.request, json
+from urllib import parse,request
 import re
 
 #Variables
+
 bot = commands.Bot(command_prefix='=', description="Bot Oficial de Ikoners!")
 
-#Cargar el JSON de todos lso champs
+#Load JSON for api riot
 with urllib.request.urlopen("http://ddragon.leagueoflegends.com/cdn/10.14.1/data/es_AR/champion.json") as url:
     champions_data = json.loads(url.read().decode())
     
@@ -21,29 +17,31 @@ watcher = LolWatcher('RGAPI-963052f9-5a06-40bf-9865-126418fb5139')
 my_region = 'la1'
 
 #Comandos
+
+#Test command
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
 
-#Cambia el estado al streamer seleccionado
+#change state to write stream
 @bot.command()
 async def streaming(ctx, streamer_name):
     url_streamer="https://www.twitch.tv/"+streamer_name
     await bot.change_presence(activity=discord.Streaming(name=streamer_name, url=url_streamer))
     await ctx.send("Streamer a mostrar es: " + streamer_name)
 
-#Resetea el estado de streaming
+#Reset streaming to league of legend
 @bot.command()
 async def reset(ctx):
     await bot.change_presence(activity=discord.Game(name="League of Legends"))
 
-#Muestra Stats del champ
+#Show stats Champ
 @bot.command()
 async def champ(ctx, champ):
       try:
-        #Transformo a String el parametro del comando
+        #Convert to String the parameter of comando
         nombre = str(champ)
-        #Guardo en la variable la Lista de todos los datos del Campeon selecionado
+        #selected champ = The List of all dates of selected champ 
         selected_champ = champions_data['data'][nombre]
         
         champ_embed = discord.Embed(title=selected_champ['name'], description=selected_champ['title'],
@@ -52,7 +50,7 @@ async def champ(ctx, champ):
         champ_embed.add_field(name="Lore", value=selected_champ['blurb'])
         
         champ_embed.set_author(name="Ikoner", url="https://www.youtube.com/channel/UCN2cPKmtHpQ0m44ILhpNTZg",icon_url="http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/"+selected_champ['name']+".png")
-      #Construyo las Stats
+      #Constructs the Stats
         champ_embed.add_field(name="Stats", value=
         "HP: "                      + str(selected_champ['stats']['hp'])          + "\n" +
         "Velocidad de Movimiento: " + str(selected_champ['stats']['movespeed'])   + "\n" +
@@ -67,7 +65,7 @@ async def champ(ctx, champ):
         await ctx.send('Ese Campeon no existe :O')
 
 
-#Comando help
+#Help command
 @bot.command()
 async def comandos(ctx):
     help_embed=discord.Embed(title="Comandos",description="Todos los comandos disponibles",colour=discord.Colour.dark_gold())
@@ -78,7 +76,9 @@ async def comandos(ctx):
     await ctx.send(embed=help_embed)
 
 
-#Eventos
+#Events
+
+#Show "Estoy Listo" when the bot 
 @bot.event
 async def on_ready():
 
@@ -86,5 +86,5 @@ async def on_ready():
 
     print("Estoy listo")
 
-
+#Bot token
 bot.run('NzI4NzIxODcxMTcxNzQ3ODQx.Xw1NhQ.O4xd2UKsvnNWo5sbJ62MlowaO0g')
