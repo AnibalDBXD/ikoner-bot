@@ -5,7 +5,7 @@ import urllib.request, json
 from urllib import parse,request
 import re
 
-#Variables
+
 
 bot = commands.Bot(command_prefix='=', description="Bot Oficial de Ikoners!")
 
@@ -13,7 +13,7 @@ bot = commands.Bot(command_prefix='=', description="Bot Oficial de Ikoners!")
 with urllib.request.urlopen("http://ddragon.leagueoflegends.com/cdn/10.14.1/data/es_AR/champion.json") as url:
     champions_data = json.loads(url.read().decode())
     
-watcher = LolWatcher('RGAPI-963052f9-5a06-40bf-9865-126418fb5139')
+watcher = LolWatcher('***********-********-****')
 my_region = 'la1'
 
 #Comandos
@@ -50,7 +50,7 @@ async def champ(ctx, champ):
         champ_embed.add_field(name="Lore", value=selected_champ['blurb'])
         
         champ_embed.set_author(name="Ikoner", url="https://www.youtube.com/channel/UCN2cPKmtHpQ0m44ILhpNTZg",icon_url="http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/"+selected_champ['name']+".png")
-      #Constructs the Stats
+      #build the Stats
         champ_embed.add_field(name="Stats", value=
         "HP: "                      + str(selected_champ['stats']['hp'])          + "\n" +
         "Velocidad de Movimiento: " + str(selected_champ['stats']['movespeed'])   + "\n" +
